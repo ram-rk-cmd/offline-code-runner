@@ -1,0 +1,127 @@
+.program-tile {
+  border-radius: 16px;
+  padding: 0; /* Content padding handled inside */
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.program-tile:hover {
+  transform: translateY(-4px);
+  background: rgba(30, 41, 59, 0.7);
+  border-color: var(--accent-color);
+  box-shadow: 0 12px 20px -8px rgba(0, 0, 0, 0.3);
+}
+
+.program-tile.active {
+  border-color: var(--accent-color);
+  background: rgba(56, 189, 248, 0.08);
+  box-shadow: 0 0 0 1px var(--accent-color);
+}
+
+.tile-header {
+  padding: 1.25rem 1.25rem 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.lang-badge {
+  font-size: 0.6rem;
+  font-weight: 800;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.lang-badge.c { background: linear-gradient(135deg, #2563eb, #3b82f6); box-shadow: 0 2px 4px rgba(37, 99, 235, 0.3); }
+.lang-badge.java { background: linear-gradient(135deg, #ea580c, #f97316); box-shadow: 0 2px 4px rgba(234, 88, 12, 0.3); }
+
+.program-name {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--text-primary);
+}
+
+.tile-body {
+  padding: 1rem 1.25rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+/* Preview Section - Now First */
+.code-preview {
+  background: #0f172a;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  color: #cbd5e1;
+  white-space: pre-wrap;
+  overflow: hidden;
+  height: 100px; /* Fixed height for uniformity */
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.05);
+  flex-shrink: 0;
+}
+
+.code-preview::before {
+    content: "Preview";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(255,255,255,0.05);
+    padding: 2px 6px;
+    font-size: 0.6rem;
+    color: #64748b;
+    border-bottom-left-radius: 6px;
+}
+
+/* About/Description Section - Now Second */
+.program-desc {
+  font-family: 'Inter', sans-serif;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Allow a bit more text */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-top: auto; /* Push to bottom if extra space */
+  border-top: 1px solid rgba(255,255,255,0.05);
+  padding-top: 0.5rem;
+}
+
+.program-desc::before {
+    content: "About";
+    display: block;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 0.25rem;
+}
+
+/* Actions only show on hover or can be hidden if we just click tile */
+.tile-actions {
+  display: none; /* Changed: we click tile to open. Actions removed from tile */
+}

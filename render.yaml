@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: offline-code-runner
+    env: docker
+    plan: free
+    region: singapore # Optional: chose a region near you or remove to default
+    branch: main
+    envVars:
+      - key: PORT
+        value: 10000
